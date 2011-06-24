@@ -10,12 +10,23 @@ module Refinery
       def load
         @settings.map do |scope, settings|
           settings.map do |name, value|
-            [name, value.merge({:scoping => scope})]
+            [name, transform_value(value, scope)]
           end
         end.flatten(1).each do |setting|
           RefinerySetting.set(setting.first, setting.last)
         end
       end
+
+      private
+      def transform_value(value, scope)
+        value = symbolize_keys(value)
+        scope == 'unscoped' ? value : value.merge({:scoping => scope})
+      end
+
+      def symbolize_keys(value)
+        Hash[value.map{|k, v| [k.to_sym, v]}]
+      end
+
     end
   end
 end
