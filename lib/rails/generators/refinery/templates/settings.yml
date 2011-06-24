@@ -1,1 +1,20 @@
-# Test Settings File
+# RefinerySettings Configuration File.  Loads these settings on app startup.
+#
+# File is formatted as:
+#
+# scoping:
+#   setting_name:
+#     value: foo
+#     destroyable: *optional* 
+#     ...
+#   setting2_name:
+#     value: foo
+#     destroyable: *optional* 
+#     ...
+#  
+#  For "unscoping-ed" settings, use this as the scoping:
+#  unscoped:
+#    unscoped_setting_name:
+#      ...
+#    unscoped_setting_name_2:
+#
