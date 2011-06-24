@@ -12,8 +12,7 @@ module Refinery
           settings.map do |name, value|
             [name, value.merge({:scoping => scope})]
           end
-        end.flatten.each do |setting|
-          Rails.logger.debug "***** Setting: #{setting.first} to #{setting.second.inspect}"
+        end.flatten(1).each do |setting|
           RefinerySetting.set(setting.first, setting.last)
         end
       end
