@@ -1,6 +1,6 @@
 module Refinery
   module SettingsInitializer
-    VERSION = "0.1"
+    VERSION = "0.9"
   end
 end
 
