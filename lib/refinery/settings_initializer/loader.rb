@@ -8,12 +8,12 @@ module Refinery
       end
 
       def load
-        @settings.map do |scope, settings|
-          settings.map do |name, value|
+        settings.map do |scope, children|
+          children.map do |name, value|
             [name, transform_value(value, scope)]
           end
-        end.flatten(1).each do |setting|
-          RefinerySetting.set(setting.first, setting.last)
+        end.flatten(1).each do |name, options|
+          RefinerySetting.set(name, options)
         end
       end
 
@@ -26,7 +26,6 @@ module Refinery
       def symbolize_keys(value)
         Hash[value.map{|k, v| [k.to_sym, v]}]
       end
-
     end
   end
 end
