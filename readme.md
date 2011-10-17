@@ -21,7 +21,7 @@ than that.
 
 Open up your ``Gemfile`` and add at the bottom this line:
 
-    gem 'refinerycms-settings-initialzer', '~> 0.9'
+    gem 'refinerycms-settings-initializer', '~> 0.9'
 
 Now, run ``bundle install``
 
